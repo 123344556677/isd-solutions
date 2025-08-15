@@ -1,25 +1,15 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import React from "react";
+import { Link } from "wouter";
 import { Button } from "../ui/button";
 import { ThemeToggle } from "../theme-toggle";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Projects", path: "/projects" },
-    { name: "Testimonials", path: "/testimonials" },
-    { name: "Contact", path: "/contact" },
-  ];
-
-  const isActive = (path: string) => {
-    if (path === "/" && location === "/") return true;
-    return path !== "/" && location.startsWith(path);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -27,67 +17,113 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" data-testid="link-home">
-            <div className="text-2xl font-bold text-gradient-red cursor-pointer">
-              ISD Solutions
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="flex items-center space-x-2">
+              <img 
+                src="/assets/images/apple-icon.png" 
+                alt="ISD Solutions Logo" 
+                className="h-28 w-auto transition-transform duration-300 group-hover:scale-110"
+              />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-foreground hover:text-primary-red transition-colors duration-300">
+              Home
+            </Link>
+            <Link href="/about" className="text-foreground hover:text-primary-red transition-colors duration-300">
+              About
+            </Link>
+            <Link href="/services" className="text-foreground hover:text-primary-red transition-colors duration-300">
+              Services
+            </Link>
+            <Link href="/projects" className="text-foreground hover:text-primary-red transition-colors duration-300">
+              Projects
+            </Link>
+            <Link href="/testimonials" className="text-foreground hover:text-primary-red transition-colors duration-300">
+              Testimonials
+            </Link>
+            <Link href="/contact" className="text-foreground hover:text-primary-red transition-colors duration-300">
+              Contact
+            </Link>
+          </div>
+
+          {/* Right side - Theme Toggle and CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.path}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                    isActive(item.path)
-                      ? "text-primary-red"
-                      : "text-foreground hover:text-primary-red"
-                  }`}
-                  data-testid={`link-${item.name.toLowerCase()}`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
             <ThemeToggle />
+            <Link href="/contact">
+              <Button className="bg-primary-red hover:bg-primary-red/90 text-white">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground hover:text-primary-red hover:bg-accent"
-              data-testid="button-mobile-menu"
+            <button
+              onClick={toggleMenu}
+              className="text-foreground hover:text-primary-red transition-colors duration-300"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
+            </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card rounded-lg mt-2 border border-border">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
-                    isActive(item.path)
-                      ? "text-primary-red bg-primary-red/10"
-                      : "text-foreground hover:text-primary-red hover:bg-primary-red/10"
-                  }`}
-                  data-testid={`link-mobile-${item.name.toLowerCase()}`}
-                >
-                  {item.name}
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
+              <Link 
+                href="/" 
+                className="block px-3 py-2 text-foreground hover:text-primary-red transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/about" 
+                className="block px-3 py-2 text-foreground hover:text-primary-red transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link 
+                href="/services" 
+                className="block px-3 py-2 text-foreground hover:text-primary-red transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link 
+                href="/projects" 
+                className="block px-3 py-2 text-foreground hover:text-primary-red transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Projects
+              </Link>
+              <Link 
+                href="/testimonials" 
+                className="block px-3 py-2 text-foreground hover:text-primary-red transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Testimonials
+              </Link>
+              <Link 
+                href="/contact" 
+                className="block px-3 py-2 text-foreground hover:text-primary-red transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <div className="pt-4">
+                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="w-full bg-primary-red hover:bg-primary-red/90 text-white">
+                    Get Started
+                  </Button>
                 </Link>
-              ))}
+              </div>
             </div>
           </div>
         )}

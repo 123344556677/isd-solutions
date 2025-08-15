@@ -11,6 +11,8 @@ import Services from "./pages/services";
 import Projects from "./pages/projects";
 import Testimonials from "./pages/testimonials";
 import Contact from "./pages/contact";
+import PrivacyPolicy from "./pages/privacy-policy";
+import TermsConditions from "./pages/terms-conditions";
 import NotFound from "./pages/not-found";
 
 function Router() {
@@ -24,6 +26,8 @@ function Router() {
         <Route path="/projects" component={Projects} />
         <Route path="/testimonials" component={Testimonials} />
         <Route path="/contact" component={Contact} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-conditions" component={TermsConditions} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

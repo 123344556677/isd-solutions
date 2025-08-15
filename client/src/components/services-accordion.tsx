@@ -9,15 +9,77 @@ import { Card, CardContent } from "./ui/card";
 import { 
   Cloud, 
   Code, 
-  Shield, 
   Database, 
   Smartphone, 
-  BarChart3,
+  Settings,
+  FileText,
+  Calculator,
+  Building2,
   CheckCircle,
   ArrowRight
 } from "lucide-react";
 
 const services = [
+  {
+    id: "odoo-consultant",
+    title: "Odoo Consultant",
+    description: "Odoo serves as a centralized platform for managing key business functions, including customer relationship management (CRM), human resources, and more.",
+    icon: Building2,
+    features: [
+      "CRM Implementation & Customization",
+      "HR Management Systems",
+      "Inventory & Supply Chain",
+      "Financial Management",
+      "E-commerce Integration",
+      "Multi-company Setup"
+    ],
+    benefits: [
+      "Centralized business management",
+      "Improved operational efficiency",
+      "Real-time data insights",
+      "Scalable business solutions"
+    ]
+  },
+  {
+    id: "erp-next",
+    title: "ERP Next",
+    description: "Comprehensive ERP solutions to streamline your business processes and improve operational efficiency.",
+    icon: FileText,
+    features: [
+      "Process Automation",
+      "Resource Planning",
+      "Business Intelligence",
+      "Integration Services",
+      "Custom Module Development",
+      "Multi-location Management"
+    ],
+    benefits: [
+      "Streamlined business processes",
+      "Improved decision making",
+      "Reduced operational costs",
+      "Enhanced productivity"
+    ]
+  },
+  {
+    id: "fbr-digital-invoicing",
+    title: "FBR Digital Invoicing",
+    description: "Digital invoicing solutions compliant with Federal Board of Revenue requirements for seamless tax management.",
+    icon: Calculator,
+    features: [
+      "FBR Compliance Integration",
+      "Digital Invoice Generation",
+      "Tax Calculation & Management",
+      "Audit Trail & Reporting",
+      "Real-time Tax Updates",
+      "Multi-branch Support"
+    ],
+    benefits: [
+      "FBR compliance assurance",
+      "Automated tax calculations",
+      "Reduced manual errors",
+      "Simplified audit processes"
+    ]
+  },
   {
     id: "cloud-solutions",
     title: "Cloud Solutions",
@@ -79,63 +141,43 @@ const services = [
     ]
   },
   {
-    id: "cybersecurity",
-    title: "Cybersecurity",
-    description: "Comprehensive security solutions to protect your digital assets.",
-    icon: Shield,
+    id: "application-bug-fixes",
+    title: "Application Bug Fixes",
+    description: "From priority bug-fixing, technical investigations and change requests, we'll support and maintain your software.",
+    icon: Settings,
     features: [
-      "Security Audits & Assessments",
-      "Penetration Testing",
-      "Compliance (GDPR, HIPAA, SOX)",
-      "Incident Response",
-      "Security Training",
-      "Threat Monitoring"
+      "Critical Bug Resolution",
+      "Technical Investigations",
+      "Change Request Implementation",
+      "Software Maintenance",
+      "Performance Optimization",
+      "Code Refactoring"
     ],
     benefits: [
-      "Protect against cyber threats",
-      "Meet regulatory requirements",
-      "Build customer trust",
-      "Reduce security risks"
+      "Improved application stability",
+      "Enhanced user experience",
+      "Reduced downtime",
+      "Long-term software health"
     ]
   },
   {
-    id: "data-analytics",
-    title: "Data Analytics",
-    description: "Transform your data into actionable insights with advanced analytics.",
-    icon: BarChart3,
-    features: [
-      "Business Intelligence",
-      "Data Visualization",
-      "Predictive Analytics",
-      "Process Optimization",
-      "Real-time Dashboards",
-      "Machine Learning Models"
-    ],
-    benefits: [
-      "Data-driven decision making",
-      "Identify business opportunities",
-      "Improve operational efficiency",
-      "Predict future trends"
-    ]
-  },
-  {
-    id: "database-solutions",
-    title: "Database Solutions",
-    description: "Robust database design and optimization for your applications.",
+    id: "oracle-ebs-upgrade",
+    title: "Oracle EBS Upgrade",
+    description: "Oracle E-Business Suite (EBS) upgrade is the process of transitioning an existing EBS installation to a newer version released by Oracle Corporation.",
     icon: Database,
     features: [
-      "Database Design & Architecture",
-      "Performance Tuning",
-      "Data Migration",
-      "Backup & Recovery",
-      "Data Warehousing",
-      "Database Security"
+      "Version Migration Planning",
+      "Data Migration & Validation",
+      "System Testing & QA",
+      "User Training & Documentation",
+      "Performance Optimization",
+      "Go-live Support"
     ],
     benefits: [
-      "Optimized database performance",
-      "Secure data storage",
-      "Scalable database architecture",
-      "Reliable backup systems"
+      "Access to latest features",
+      "Enhanced security and compliance",
+      "Improved performance",
+      "Extended support lifecycle"
     ]
   }
 ];

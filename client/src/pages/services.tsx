@@ -45,9 +45,9 @@ export default function Services() {
   ];
 
   const technologies = [
-    "React & Next.js", "Node.js", "Python", "Java", "AWS", "Azure", 
-    "Google Cloud", "Docker", "Kubernetes", "MongoDB", "PostgreSQL", 
-    "Redis", "Firebase", "React Native", "Flutter", "TensorFlow"
+    "React & Next.js", "Node.js", "PHP", "Laravel", "Vue.js", "Angular", 
+    "AWS", "Azure", "Google Cloud", "Docker", "MongoDB", "PostgreSQL", 
+    "Redis", "Firebase", "React Native", "Flutter", "Odoo", "ERP Next"
   ];
 
   return (

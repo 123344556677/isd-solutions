@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useScrollAnimation } from "../lib/scroll-animations";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -14,75 +13,84 @@ export default function Projects() {
   const fadeInUpVisible = "opacity-100 translate-y-0";
   const slideInLeft = "opacity-0 -translate-x-8 transition-all duration-700";
   const slideInLeftVisible = "opacity-100 translate-x-0";
+  const slideInRight = "opacity-0 translate-x-8 transition-all duration-700";
+  const slideInRightVisible = "opacity-100 translate-x-0";
+  const scaleIn = "opacity-0 scale-95 transition-all duration-700";
+  const scaleInVisible = "opacity-100 scale-100";
 
   const categories = [
     { id: "all", label: "All Projects" },
+    { id: "odoo", label: "Odoo Solutions" },
+    { id: "erp", label: "ERP Systems" },
+    { id: "fbr", label: "FBR Solutions" },
     { id: "web", label: "Web Development" },
-    { id: "mobile", label: "Mobile Apps" },
-    { id: "cloud", label: "Cloud Solutions" },
-    { id: "ai", label: "AI & ML" }
+    { id: "mobile", label: "Mobile Apps" }
   ];
 
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
-      category: "web",
+      title: "Amazon Agri ERP System",
+      description: "Comprehensive Odoo ERP implementation for Amazon Agri, including CRM, HR management, inventory control, and financial management modules.",
+      category: "odoo",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#"
+      technologies: ["Odoo", "PostgreSQL", "Python", "JavaScript"]
     },
     {
       id: 2,
-      title: "Mobile Banking App",
-      description: "A secure mobile banking application for iOS and Android with biometric authentication and real-time transaction monitoring.",
+      title: "Pakistan Holstein Mobile App",
+      description: "Cross-platform mobile application for Pakistan Holstein with real-time data synchronization, offline functionality, and user management.",
       category: "mobile",
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["React Native", "Firebase", "Biometric Auth"],
-      liveUrl: "#",
-      githubUrl: "#"
+      technologies: ["React Native", "Firebase", "Redux", "TypeScript"]
     },
     {
       id: 3,
-      title: "Cloud Migration Solution",
-      description: "Enterprise cloud migration solution that helped a Fortune 500 company reduce infrastructure costs by 40%.",
-      category: "cloud",
+      title: "Enviro ERP Next Implementation",
+      description: "Complete ERP Next solution for Enviro with process automation, resource planning, and business intelligence integration.",
+      category: "erp",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["AWS", "Docker", "Kubernetes", "Terraform"],
-      liveUrl: "#",
-      githubUrl: "#"
+      technologies: ["ERP Next", "MariaDB", "Python", "Frappe"]
     },
     {
       id: 4,
-      title: "AI-Powered Analytics",
-      description: "Machine learning platform that provides predictive analytics and business intelligence insights.",
-      category: "ai",
+      title: "JW Vendor City FBR Integration",
+      description: "FBR-compliant digital invoicing system for JW Vendor City with automated tax calculations and audit trail management.",
+      category: "fbr",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["Python", "TensorFlow", "React", "PostgreSQL"],
-      liveUrl: "#",
-      githubUrl: "#"
+      technologies: ["FBR API", "React", "Node.js", "MongoDB"]
     },
     {
       id: 5,
-      title: "Real Estate Management System",
-      description: "Comprehensive property management system with tenant portal, maintenance tracking, and financial reporting.",
-      category: "web",
+      title: "Oracle EBS Upgrade Project",
+      description: "Enterprise Oracle E-Business Suite upgrade with data migration, system testing, and comprehensive user training.",
+      category: "erp",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["Vue.js", "Laravel", "MySQL", "Redis"],
-      liveUrl: "#",
-      githubUrl: "#"
+      technologies: ["Oracle EBS", "PL/SQL", "Oracle Forms", "Reports"]
     },
     {
       id: 6,
-      title: "Fitness Tracking App",
-      description: "Cross-platform fitness tracking application with workout planning, progress monitoring, and social features.",
-      category: "mobile",
+      title: "E-commerce Platform",
+      description: "Modern e-commerce platform with Odoo integration, payment processing, and comprehensive admin dashboard.",
+      category: "web",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      technologies: ["Flutter", "Firebase", "HealthKit", "Google Fit"],
-      liveUrl: "#",
-      githubUrl: "#"
+      technologies: ["React", "Node.js", "Odoo", "Stripe"]
+    },
+    {
+      id: 7,
+      title: "Food Delivery Mobile App",
+      description: "Feature-rich food delivery application with real-time tracking, payment integration, and restaurant management system.",
+      category: "mobile",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      technologies: ["Flutter", "Firebase", "Google Maps", "Stripe"]
+    },
+    {
+      id: 8,
+      title: "Healthcare Management App",
+      description: "Comprehensive healthcare management application for clinics with patient records, appointment scheduling, and billing.",
+      category: "mobile",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      technologies: ["React Native", "Node.js", "PostgreSQL", "JWT"]
     }
   ];
 
@@ -134,56 +142,43 @@ export default function Projects() {
             {filteredProjects.map((project, index) => (
               <Card 
                 key={project.id} 
-                className="bg-card border-border card-hover group animate-slide-up overflow-hidden"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-card border-border card-hover group animate-slide-up overflow-hidden transform hover:scale-105 transition-all duration-500"
+                style={{ 
+                  animationDelay: `${index * 0.1}s`,
+                  animation: projectsVisible ? `slideInUp 0.6s ease-out ${index * 0.1}s both` : 'none'
+                }}
                 data-testid={`card-project-${project.id}`}
               >
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     data-testid={`img-project-${project.id}`}
                   />
-                  <div className="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                  <div className="absolute top-4 right-4 bg-primary-red text-white px-3 py-1 rounded-full text-sm font-medium transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    {project.category.toUpperCase()}
+                  </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-foreground" data-testid={`text-title-${project.id}`}>
+                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary-red transition-colors duration-300" data-testid={`text-title-${project.id}`}>
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-description-${project.id}`}>
+                  <p className="text-muted-foreground mb-4 leading-relaxed group-hover:text-foreground transition-colors duration-300" data-testid={`text-description-${project.id}`}>
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={tech}
-                        className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                        className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full transform hover:scale-110 hover:bg-primary-red hover:text-white transition-all duration-300"
+                        style={{ animationDelay: `${techIndex * 0.1}s` }}
                         data-testid={`tag-${tech.toLowerCase().replace(/\s+/g, '-')}`}
                       >
                         {tech}
                       </span>
                     ))}
-                  </div>
-                  <div className="flex space-x-3">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="flex-1"
-                      data-testid={`button-live-${project.id}`}
-                    >
-                      <ExternalLink className="mr-2" size={16} />
-                      Live Demo
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="flex-1"
-                      data-testid={`button-github-${project.id}`}
-                    >
-                      <Github className="mr-2" size={16} />
-                      Code
-                    </Button>
                   </div>
                 </CardContent>
               </Card>

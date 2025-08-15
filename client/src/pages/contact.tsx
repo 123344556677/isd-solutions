@@ -10,6 +10,7 @@ import { Textarea } from "../components/ui/textarea";
 import { Label } from "../components/ui/label";
 import { useToast } from "../hooks/use-toast";
 import { useScrollAnimation } from "../lib/scroll-animations";
+import emailjs from '@emailjs/browser';
 
 // Contact form validation schema
 const contactFormSchema = z.object({
@@ -46,14 +47,31 @@ export default function Contact() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject || "Contact Form Submission",
+        message: data.message,
+        to_email: "info@isdsolutions.com"
+      };
+
+      // Replace these with your actual EmailJS credentials
+      const serviceId = "YOUR_SERVICE_ID"; // Replace with your EmailJS service ID
+      const templateId = "YOUR_TEMPLATE_ID"; // Replace with your EmailJS template ID
+      const publicKey = "YOUR_PUBLIC_KEY"; // Replace with your EmailJS public key
+
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      console.log("Email sent successfully:", result);
+      
       toast({
         title: "Message sent successfully!",
-        description: "Thank you for your message. We'll get back to you soon.",
+        description: "Thank you for your message. We will reach back to you on your email soon.",
       });
       form.reset();
     } catch (error) {
+      console.error("Error sending email:", error);
       toast({
         title: "Error sending message",
         description: "There was a problem sending your message. Please try again.",
@@ -68,17 +86,17 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Office Address",
-      content: ["123 Tech Street, Suite 400", "San Francisco, CA 94102"]
+      content: ["1st Floor Potohar Plaza - Blue Area", "Lahore, Pakistan"]
     },
     {
       icon: Phone,
       title: "Phone Number",
-      content: ["+1 (555) 123-4567"]
+      content: ["+92 300 807 8456"]
     },
     {
       icon: Mail,
       title: "Email Address",
-      content: ["info@techvision.com"]
+      content: ["info@isdsolutions.com"]
     },
     {
       icon: Clock,
