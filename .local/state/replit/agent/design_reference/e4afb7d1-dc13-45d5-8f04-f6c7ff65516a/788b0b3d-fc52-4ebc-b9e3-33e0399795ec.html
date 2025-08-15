@@ -1,0 +1,998 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVision - IT Solutions & Corporate Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-red': '#DC2626',
+                        'primary-red-dark': '#7F1D1D',
+                        'secondary-red': '#EF4444',
+                        'secondary-red-dark': '#991B1B',
+                        'dark-bg': '#111111',
+                        'darker-bg': '#000000',
+                        'card-bg': '#1F1F1F',
+                        'border-dark': '#2D2D2D'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'gradient-red': 'linear-gradient(135deg, #DC2626 0%, #7F1D1D 100%)',
+                        'gradient-red-light': 'linear-gradient(135deg, #EF4444 0%, #991B1B 100%)',
+                        'gradient-dark': 'linear-gradient(135deg, #111111 0%, #000000 100%)'
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darker-bg text-white font-inter">
+    
+    <!-- @COMPONENT: Navigation [responsive header with logo and menu] -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-darker-bg/95 backdrop-blur-sm border-b border-border-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold bg-gradient-red bg-clip-text text-transparent">
+                        TechVision
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-white hover:text-primary-red transition-colors duration-300 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-primary-red transition-colors duration-300 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#projects" class="text-gray-300 hover:text-primary-red transition-colors duration-300 px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#testimonials" class="text-gray-300 hover:text-primary-red transition-colors duration-300 px-3 py-2 text-sm font-medium">Testimonials</a>
+                        <a href="#contact" class="text-gray-300 hover:text-primary-red transition-colors duration-300 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section [main landing area with CTA] -->
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden">
+        <!-- Background with gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-dark"></div>
+        <div class="absolute inset-0 bg-gradient-red opacity-10"></div>
+        
+        <!-- Hero content with technology background image -->
+        <!-- Modern tech workspace with multiple monitors and code -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+                    <span class="block text-white">IT Solutions</span>
+                    <span class="block bg-gradient-red bg-clip-text text-transparent">& Corporate Services</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Transform your business with cutting-edge technology solutions. We deliver innovative IT services that drive growth and efficiency.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-gradient-red hover:bg-gradient-red-light text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Get Started
+                    </button>
+                    <button class="border-2 border-primary-red text-primary-red hover:bg-primary-red hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating stats -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- @MAP: stats.map(stat => ( -->
+                <div class="bg-card-bg/80 backdrop-blur-sm rounded-lg p-4 text-center border border-border-dark">
+                    <div class="text-2xl md:text-3xl font-bold bg-gradient-red bg-clip-text text-transparent" data-bind="stat.number">150+</div>
+                    <div class="text-sm text-gray-300" data-bind="stat.label">Projects Completed</div>
+                </div>
+                <div class="bg-card-bg/80 backdrop-blur-sm rounded-lg p-4 text-center border border-border-dark">
+                    <div class="text-2xl md:text-3xl font-bold bg-gradient-red bg-clip-text text-transparent" data-bind="stat.number">50+</div>
+                    <div class="text-sm text-gray-300" data-bind="stat.label">Happy Clients</div>
+                </div>
+                <div class="bg-card-bg/80 backdrop-blur-sm rounded-lg p-4 text-center border border-border-dark">
+                    <div class="text-2xl md:text-3xl font-bold bg-gradient-red bg-clip-text text-transparent" data-bind="stat.number">5+</div>
+                    <div class="text-sm text-gray-300" data-bind="stat.label">Years Experience</div>
+                </div>
+                <div class="bg-card-bg/80 backdrop-blur-sm rounded-lg p-4 text-center border border-border-dark">
+                    <div class="text-2xl md:text-3xl font-bold bg-gradient-red bg-clip-text text-transparent" data-bind="stat.number">24/7</div>
+                    <div class="text-sm text-gray-300" data-bind="stat.label">Support</div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Services Section [overview of company services] -->
+    <section class="py-20 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Our <span class="bg-gradient-red bg-clip-text text-transparent">Services</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    We provide comprehensive IT solutions tailored to meet your business needs and drive digital transformation.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: services.map(service => ( -->
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <div class="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cloud" data-bind="service.icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-bind="service.title">Cloud Solutions</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-bind="service.description">
+                        Scalable cloud infrastructure and migration services to modernize your business operations and reduce costs.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Cloud Migration</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Infrastructure Setup</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>24/7 Monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <div class="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-code" data-bind="service.icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-bind="service.title">Web Development</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-bind="service.description">
+                        Custom web applications and responsive websites built with modern technologies and best practices.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>React & Next.js</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>E-commerce Solutions</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>API Development</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <div class="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-mobile-alt" data-bind="service.icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-bind="service.title">Mobile Development</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-bind="service.description">
+                        Native and cross-platform mobile applications for iOS and Android with seamless user experiences.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>iOS & Android</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>React Native</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>App Store Deployment</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <div class="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt" data-bind="service.icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-bind="service.title">Cybersecurity</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-bind="service.description">
+                        Comprehensive security solutions to protect your business from cyber threats and data breaches.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Security Audits</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Penetration Testing</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Compliance</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <div class="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-database" data-bind="service.icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-bind="service.title">Data Analytics</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-bind="service.description">
+                        Transform your data into actionable insights with advanced analytics and business intelligence solutions.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Business Intelligence</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Data Visualization</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Predictive Analytics</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <div class="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-headset" data-bind="service.icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white" data-bind="service.title">IT Consulting</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-bind="service.description">
+                        Strategic IT consulting to help you make informed technology decisions and optimize your infrastructure.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Technology Strategy</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Digital Transformation</li>
+                        <li class="text-gray-400"><i class="fas fa-check text-primary-red mr-2"></i>Process Optimization</li>
+                    </ul>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Services Section -->
+
+    <!-- @COMPONENT: About Section [company information and team] -->
+    <section id="about" class="py-20 bg-darker-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- About Company -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        About <span class="bg-gradient-red bg-clip-text text-transparent">TechVision</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        We are a leading IT solutions provider with over 5 years of experience in delivering innovative technology solutions that drive business growth and digital transformation.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-primary-red text-2xl">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Innovation First</h3>
+                                <p class="text-gray-300">We leverage cutting-edge technologies to create solutions that give you a competitive advantage.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-primary-red text-2xl">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Expert Team</h3>
+                                <p class="text-gray-300">Our skilled professionals bring years of experience and expertise to every project.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-primary-red text-2xl">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">24/7 Support</h3>
+                                <p class="text-gray-300">Round-the-clock support ensures your systems are always running smoothly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Professional team working in modern office environment -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Professional team collaborating in modern office" class="rounded-xl shadow-2xl" />
+                    <div class="absolute inset-0 bg-gradient-red opacity-20 rounded-xl"></div>
+                </div>
+            </div>
+            
+            <!-- Team Section -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Our <span class="bg-gradient-red bg-clip-text text-transparent">Team</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Meet the talented professionals who make TechVision a leader in IT solutions and corporate services.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- @MAP: team.map(member => ( -->
+                <div class="bg-card-bg rounded-xl p-6 text-center border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <!-- Professional headshot of tech executive -->
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="John Smith - CEO" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-red group-hover:scale-110 transition-transform duration-300" data-bind="member.avatar" />
+                    <h3 class="text-xl font-bold text-white mb-2" data-bind="member.name">John Smith</h3>
+                    <p class="text-primary-red font-semibold mb-3" data-bind="member.position">CEO & Founder</p>
+                    <p class="text-gray-300 text-sm" data-bind="member.description">Leading the company's vision and strategic direction with over 15 years of experience.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-6 text-center border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <!-- Professional headshot of female tech lead -->
+                    <img src="https://pixabay.com/get/g2ac638c4bbac425e84b7100df85fad2cc9ee9d5a8c0fb0114224f34e5548457ccff627cbdb26867fcba8081200816ca548c4e29c6def9a9370aad20128baa772_1280.jpg" alt="Sarah Johnson - CTO" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-red group-hover:scale-110 transition-transform duration-300" data-bind="member.avatar" />
+                    <h3 class="text-xl font-bold text-white mb-2" data-bind="member.name">Sarah Johnson</h3>
+                    <p class="text-primary-red font-semibold mb-3" data-bind="member.position">Chief Technology Officer</p>
+                    <p class="text-gray-300 text-sm" data-bind="member.description">Driving technical innovation and overseeing all technology initiatives and development.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-6 text-center border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <!-- Professional headshot of male developer -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Michael Chen - Lead Developer" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-red group-hover:scale-110 transition-transform duration-300" data-bind="member.avatar" />
+                    <h3 class="text-xl font-bold text-white mb-2" data-bind="member.name">Michael Chen</h3>
+                    <p class="text-primary-red font-semibold mb-3" data-bind="member.position">Lead Developer</p>
+                    <p class="text-gray-300 text-sm" data-bind="member.description">Expert in full-stack development with specialization in React and Node.js applications.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-6 text-center border border-border-dark hover:border-primary-red transition-all duration-300 group">
+                    <!-- Professional headshot of female project manager -->
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Emily Davis - Project Manager" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-red group-hover:scale-110 transition-transform duration-300" data-bind="member.avatar" />
+                    <h3 class="text-xl font-bold text-white mb-2" data-bind="member.name">Emily Davis</h3>
+                    <p class="text-primary-red font-semibold mb-3" data-bind="member.position">Project Manager</p>
+                    <p class="text-gray-300 text-sm" data-bind="member.description">Ensuring seamless project delivery with excellent communication and organizational skills.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Projects Section [portfolio showcase with mock data] -->
+    <section id="projects" class="py-20 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Our <span class="bg-gradient-red bg-clip-text text-transparent">Projects</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover our portfolio of successful projects that have transformed businesses and delivered exceptional results.
+                </p>
+            </div>
+            
+            <!-- Project Categories Filter -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="bg-gradient-red text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-filter="all">All Projects</button>
+                <button class="bg-card-bg text-gray-300 hover:bg-primary-red hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-filter="web">Web Development</button>
+                <button class="bg-card-bg text-gray-300 hover:bg-primary-red hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-filter="mobile">Mobile Apps</button>
+                <button class="bg-card-bg text-gray-300 hover:bg-primary-red hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-filter="cloud">Cloud Solutions</button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                <div class="bg-card-bg rounded-xl overflow-hidden border border-border-dark hover:border-primary-red transition-all duration-300 group" data-category="web" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Modern e-commerce website dashboard interface -->
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="E-commerce platform dashboard" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" data-bind="project.image" data-mock-image="true" data-implementation="Replace with actual project screenshots" />
+                        <div class="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="text-white text-2xl hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3" data-bind="project.title">E-Commerce Platform</h3>
+                        <p class="text-gray-300 mb-4" data-bind="project.description">A comprehensive e-commerce solution with advanced analytics, inventory management, and seamless payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">React</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Node.js</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">MongoDB</span>
+                        </div>
+                        <button class="text-primary-red hover:text-white font-semibold" data-event="click:viewProject">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl overflow-hidden border border-border-dark hover:border-primary-red transition-all duration-300 group" data-category="mobile" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Mobile app interface design on phone mockup -->
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Mobile app interface design" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" data-bind="project.image" data-mock-image="true" data-implementation="Replace with actual project screenshots" />
+                        <div class="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="text-white text-2xl hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3" data-bind="project.title">FinTech Mobile App</h3>
+                        <p class="text-gray-300 mb-4" data-bind="project.description">A secure financial technology mobile application with real-time transactions, budgeting tools, and investment tracking.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">React Native</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">TypeScript</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Firebase</span>
+                        </div>
+                        <button class="text-primary-red hover:text-white font-semibold" data-event="click:viewProject">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl overflow-hidden border border-border-dark hover:border-primary-red transition-all duration-300 group" data-category="cloud" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Cloud infrastructure and server monitoring dashboard -->
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Cloud infrastructure monitoring dashboard" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" data-bind="project.image" data-mock-image="true" data-implementation="Replace with actual project screenshots" />
+                        <div class="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="text-white text-2xl hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3" data-bind="project.title">Cloud Migration Platform</h3>
+                        <p class="text-gray-300 mb-4" data-bind="project.description">Enterprise cloud migration solution with automated deployment, monitoring, and cost optimization features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">AWS</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Docker</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Kubernetes</span>
+                        </div>
+                        <button class="text-primary-red hover:text-white font-semibold" data-event="click:viewProject">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl overflow-hidden border border-border-dark hover:border-primary-red transition-all duration-300 group" data-category="web" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Corporate website with modern design elements -->
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Corporate website design" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" data-bind="project.image" data-mock-image="true" data-implementation="Replace with actual project screenshots" />
+                        <div class="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="text-white text-2xl hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3" data-bind="project.title">Corporate Website Redesign</h3>
+                        <p class="text-gray-300 mb-4" data-bind="project.description">Complete redesign of a corporate website with improved user experience, SEO optimization, and content management system.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Next.js</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Tailwind CSS</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Strapi CMS</span>
+                        </div>
+                        <button class="text-primary-red hover:text-white font-semibold" data-event="click:viewProject">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl overflow-hidden border border-border-dark hover:border-primary-red transition-all duration-300 group" data-category="mobile" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Healthcare mobile app interface -->
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Healthcare mobile app interface" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" data-bind="project.image" data-mock-image="true" data-implementation="Replace with actual project screenshots" />
+                        <div class="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="text-white text-2xl hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3" data-bind="project.title">Healthcare Management App</h3>
+                        <p class="text-gray-300 mb-4" data-bind="project.description">Comprehensive healthcare management application with appointment scheduling, patient records, and telemedicine features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Flutter</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">PostgreSQL</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">WebRTC</span>
+                        </div>
+                        <button class="text-primary-red hover:text-white font-semibold" data-event="click:viewProject">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl overflow-hidden border border-border-dark hover:border-primary-red transition-all duration-300 group" data-category="web" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Data analytics dashboard with charts and graphs -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Data analytics dashboard" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" data-bind="project.image" data-mock-image="true" data-implementation="Replace with actual project screenshots" />
+                        <div class="absolute inset-0 bg-gradient-red opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="text-white text-2xl hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3" data-bind="project.title">Analytics Dashboard</h3>
+                        <p class="text-gray-300 mb-4" data-bind="project.description">Real-time business intelligence dashboard with interactive charts, data visualization, and automated reporting capabilities.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">D3.js</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Python</span>
+                            <span class="bg-primary-red/20 text-primary-red px-3 py-1 rounded-full text-sm" data-bind="project.tech">Redis</span>
+                        </div>
+                        <button class="text-primary-red hover:text-white font-semibold" data-event="click:viewProject">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-gradient-red hover:bg-gradient-red-light text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Projects Section -->
+
+    <!-- @COMPONENT: Testimonials Section [client reviews with mock data] -->
+    <section id="testimonials" class="py-20 bg-darker-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Client <span class="bg-gradient-red bg-clip-text text-transparent">Testimonials</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Don't just take our word for it. Here's what our satisfied clients have to say about our services.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: testimonials.map(testimonial => ( -->
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-primary-red text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed" data-bind="testimonial.content">
+                        "TechVision transformed our entire digital infrastructure. Their cloud migration solution improved our efficiency by 40% and reduced operational costs significantly. Outstanding service and support!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Professional headshot of business executive -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Robert Wilson - CEO" class="w-12 h-12 rounded-full border-2 border-primary-red mr-4" data-bind="testimonial.avatar" data-mock-image="true" data-implementation="Replace with actual client photos" />
+                        <div>
+                            <h4 class="text-white font-semibold" data-bind="testimonial.name">Robert Wilson</h4>
+                            <p class="text-gray-400 text-sm" data-bind="testimonial.position">CEO, InnovateCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-primary-red text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed" data-bind="testimonial.content">
+                        "The mobile app development team exceeded our expectations. They delivered a user-friendly, feature-rich application that our customers love. Professional, timely, and innovative approach."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Professional headshot of female business leader -->
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Maria Garcia - CTO" class="w-12 h-12 rounded-full border-2 border-primary-red mr-4" data-bind="testimonial.avatar" data-mock-image="true" data-implementation="Replace with actual client photos" />
+                        <div>
+                            <h4 class="text-white font-semibold" data-bind="testimonial.name">Maria Garcia</h4>
+                            <p class="text-gray-400 text-sm" data-bind="testimonial.position">CTO, StartupHub</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-primary-red text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed" data-bind="testimonial.content">
+                        "Their cybersecurity audit and implementation saved our company from potential threats. The team is knowledgeable, thorough, and provides ongoing support. Highly recommended!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Professional headshot of mature business executive -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="David Thompson - Director" class="w-12 h-12 rounded-full border-2 border-primary-red mr-4" data-bind="testimonial.avatar" data-mock-image="true" data-implementation="Replace with actual client photos" />
+                        <div>
+                            <h4 class="text-white font-semibold" data-bind="testimonial.name">David Thompson</h4>
+                            <p class="text-gray-400 text-sm" data-bind="testimonial.position">IT Director, SecureFinance</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-primary-red text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed" data-bind="testimonial.content">
+                        "Working with TechVision on our e-commerce platform was a game-changer. They understood our business needs and delivered a solution that increased our sales by 60%."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Professional headshot of female entrepreneur -->
+                        <img src="https://pixabay.com/get/g6f036b133f9aa5a11dab6b63fe5d1cee457e7e12f8e1ad01d764098215062e9a5e2b10264a0abf100958a6d1f831fc473da991b01b68d4e4420da75b307b951f_1280.jpg" alt="Jennifer Lee - Founder" class="w-12 h-12 rounded-full border-2 border-primary-red mr-4" data-bind="testimonial.avatar" data-mock-image="true" data-implementation="Replace with actual client photos" />
+                        <div>
+                            <h4 class="text-white font-semibold" data-bind="testimonial.name">Jennifer Lee</h4>
+                            <p class="text-gray-400 text-sm" data-bind="testimonial.position">Founder, EcoRetail</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-primary-red text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed" data-bind="testimonial.content">
+                        "The data analytics dashboard they created gives us incredible insights into our business. Real-time reporting and beautiful visualizations help us make better decisions daily."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Professional headshot of business analyst -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Alex Chen - Operations Manager" class="w-12 h-12 rounded-full border-2 border-primary-red mr-4" data-bind="testimonial.avatar" data-mock-image="true" data-implementation="Replace with actual client photos" />
+                        <div>
+                            <h4 class="text-white font-semibold" data-bind="testimonial.name">Alex Chen</h4>
+                            <p class="text-gray-400 text-sm" data-bind="testimonial.position">Operations Manager, DataDriven</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark hover:border-primary-red transition-all duration-300 group" data-mock="true">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-primary-red text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed" data-bind="testimonial.content">
+                        "Their IT consulting services helped us modernize our legacy systems. The transition was smooth, and we're now operating with much better efficiency and reliability."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Professional headshot of senior manager -->
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Sarah Martinez - VP Technology" class="w-12 h-12 rounded-full border-2 border-primary-red mr-4" data-bind="testimonial.avatar" data-mock-image="true" data-implementation="Replace with actual client photos" />
+                        <div>
+                            <h4 class="text-white font-semibold" data-bind="testimonial.name">Sarah Martinez</h4>
+                            <p class="text-gray-400 text-sm" data-bind="testimonial.position">VP Technology, GlobalTech</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+            
+            <!-- Client Logos -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold text-white mb-8">Trusted by Industry Leaders</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+                    <!-- Company logos would go here - using placeholder divs -->
+                    <div class="bg-gray-600 h-12 rounded flex items-center justify-center text-white font-bold" data-mock="true">LOGO 1</div>
+                    <div class="bg-gray-600 h-12 rounded flex items-center justify-center text-white font-bold" data-mock="true">LOGO 2</div>
+                    <div class="bg-gray-600 h-12 rounded flex items-center justify-center text-white font-bold" data-mock="true">LOGO 3</div>
+                    <div class="bg-gray-600 h-12 rounded flex items-center justify-center text-white font-bold" data-mock="true">LOGO 4</div>
+                    <div class="bg-gray-600 h-12 rounded flex items-center justify-center text-white font-bold" data-mock="true">LOGO 5</div>
+                    <div class="bg-gray-600 h-12 rounded flex items-center justify-center text-white font-bold" data-mock="true">LOGO 6</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Testimonials Section -->
+
+    <!-- @COMPONENT: Contact Section [contact form and company details] -->
+    <section id="contact" class="py-20 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Get In <span class="bg-gradient-red bg-clip-text text-transparent">Touch</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Ready to transform your business with innovative IT solutions? Let's discuss your project and how we can help you achieve your goals.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="bg-card-bg rounded-xl p-8 border border-border-dark">
+                    <h3 class="text-2xl font-bold text-white mb-6">Send us a Message</h3>
+                    <form class="space-y-6" data-implementation="Should integrate with contact API">
+                        <!-- @STATE: formData:object = {name:'', email:'', subject:'', message:''} -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-300 mb-2" for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full bg-darker-bg border border-border-dark rounded-lg px-4 py-3 text-white focus:border-primary-red focus:outline-none transition-colors duration-300" placeholder="Your Name" data-bind="formData.name" />
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2" for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="w-full bg-darker-bg border border-border-dark rounded-lg px-4 py-3 text-white focus:border-primary-red focus:outline-none transition-colors duration-300" placeholder="your@email.com" data-bind="formData.email" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2" for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full bg-darker-bg border border-border-dark rounded-lg px-4 py-3 text-white focus:border-primary-red focus:outline-none transition-colors duration-300" placeholder="Project Subject" data-bind="formData.subject" />
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2" for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required class="w-full bg-darker-bg border border-border-dark rounded-lg px-4 py-3 text-white focus:border-primary-red focus:outline-none transition-colors duration-300 resize-none" placeholder="Tell us about your project..." data-bind="formData.message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-red hover:bg-gradient-red-light text-white font-semibold py-4 rounded-lg transition-all duration-300 transform hover:scale-105" data-event="click:handleSubmit" data-implementation="Should validate form before submission">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-card-bg rounded-xl p-8 border border-border-dark">
+                        <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-primary-red text-2xl">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">Office Address</h4>
+                                    <p class="text-gray-300">123 Tech Street, Suite 400<br />San Francisco, CA 94102</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-primary-red text-2xl">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">Phone Number</h4>
+                                    <p class="text-gray-300">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-primary-red text-2xl">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">Email Address</h4>
+                                    <p class="text-gray-300">info@techvision.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-primary-red text-2xl">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">Business Hours</h4>
+                                    <p class="text-gray-300">Monday - Friday: 9:00 AM - 6:00 PM<br />Saturday: 10:00 AM - 4:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="bg-card-bg rounded-xl p-8 border border-border-dark">
+                        <h3 class="text-2xl font-bold text-white mb-6">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-primary-red hover:bg-primary-red-dark text-white w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-primary-red hover:bg-primary-red-dark text-white w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-primary-red hover:bg-primary-red-dark text-white w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-primary-red hover:bg-primary-red-dark text-white w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Placeholder -->
+                    <div class="bg-card-bg rounded-xl p-8 border border-border-dark">
+                        <h3 class="text-2xl font-bold text-white mb-6">Our Location</h3>
+                        <div class="bg-darker-bg h-64 rounded-lg flex items-center justify-center">
+                            <!-- Modern office building in San Francisco tech district -->
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="San Francisco office building" class="w-full h-full object-cover rounded-lg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer [company footer with links and copyright] -->
+    <footer class="bg-darker-bg border-t border-border-dark py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="text-3xl font-bold bg-gradient-red bg-clip-text text-transparent mb-4">
+                        TechVision
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Leading IT solutions provider delivering innovative technology services that drive business growth and digital transformation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Cloud Solutions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Web Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Mobile Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Cybersecurity</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Data Analytics</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">IT Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-300 hover:text-primary-red transition-colors duration-300">About Us</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Our Projects</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Testimonials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-primary-red transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Contact Info</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-primary-red mt-1"></i>
+                            <p class="text-gray-300">123 Tech Street, Suite 400<br />San Francisco, CA 94102</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-primary-red"></i>
+                            <p class="text-gray-300">+1 (555) 123-4567</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-primary-red"></i>
+                            <p class="text-gray-300">info@techvision.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-border-dark pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        © 2024 TechVision. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-primary-red transition-colors duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement business logic, API calls, or state management
+        (function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Project filter functionality placeholder
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // TODO: Implement project filtering logic
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('bg-gradient-red', 'text-white');
+                        btn.classList.add('bg-card-bg', 'text-gray-300');
+                    });
+                    this.classList.remove('bg-card-bg', 'text-gray-300');
+                    this.classList.add('bg-gradient-red', 'text-white');
+                    
+                    console.log('Filter selected:', filter);
+                });
+            });
+
+            // Form submission placeholder
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and API submission
+                    console.log('Form submission prevented - implement API integration');
+                    alert('Thank you for your message! We will get back to you soon.');
+                });
+            }
+
+            // Add active navigation highlighting on scroll
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('nav a[href^="#"]');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-primary-red');
+                    link.classList.add('text-gray-300');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.remove('text-gray-300');
+                        link.classList.add('text-primary-red');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
