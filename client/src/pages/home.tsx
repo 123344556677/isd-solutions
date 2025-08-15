@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import HeroSection from "../components/hero-section";
 import ServicesSection from "../components/services-section";
-import ServicesAccordion from "../components/services-accordion";
 import StatsSection from "../components/stats-section";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
         <StatsSection />
       </div>
       <ServicesSection />
-      <ServicesAccordion />
     </div>
   );
 }
