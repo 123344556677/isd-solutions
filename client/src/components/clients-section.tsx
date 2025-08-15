@@ -193,15 +193,26 @@ export default function ClientsSection() {
           <h3 className="text-2xl font-bold text-center text-foreground mb-10">
             Trusted by Industry Leaders
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 items-center justify-items-center">
-            {clients.map((client) => (
-              <div 
-                key={client.id}
-                className="bg-card border border-border rounded-lg p-3 text-center hover:border-primary-red transition-colors duration-300 transform hover:scale-105 transition-transform duration-300 w-full max-w-[120px]"
-              >
-                <span className="text-xs font-medium text-foreground leading-tight break-words">{client.company}</span>
-              </div>
-            ))}
+          <div className="relative overflow-hidden">
+            <div className="flex animate-scroll whitespace-nowrap">
+              {clients.map((client, index) => (
+                <div 
+                  key={client.id}
+                  className="bg-card border border-border rounded-lg p-4 text-center mx-2 min-w-max flex-shrink-0 hover:border-primary-red transition-colors duration-300 transform hover:scale-105 transition-transform duration-300"
+                >
+                  <span className="text-sm font-medium text-foreground leading-tight whitespace-nowrap">{client.company}</span>
+                </div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {clients.map((client, index) => (
+                <div 
+                  key={`duplicate-${client.id}`}
+                  className="bg-card border border-border rounded-lg p-4 text-center mx-2 min-w-max flex-shrink-0 hover:border-primary-red transition-colors duration-300 transform hover:scale-105 transition-transform duration-300"
+                >
+                  <span className="text-sm font-medium text-foreground leading-tight whitespace-nowrap">{client.company}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
