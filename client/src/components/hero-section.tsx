@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "./ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function HeroSection() {
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    document.title = "ISD Solutions - IT Solutions & Corporate Services | Home";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Leading IT solutions provider delivering innovative technology services that drive business growth and digital transformation.');
+    }
+  }, []);
+
+  // Choose logo based on theme
+  const logoSrc = theme === 'light' 
+    ? '/assets/images/isd-logo-light.svg' 
+    : '/assets/images/isd-logo-dark.svg';
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
@@ -22,9 +38,9 @@ export default function HeroSection() {
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <img 
-            src="/assets/images/isd-logo.svg" 
+            src={logoSrc}
             alt="ISD Solutions Logo" 
-            className="h-24 w-auto animate-pulse"
+            className="h-18 w-auto animate-pulse"
           />
         </div>
 

@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "wouter";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function Footer() {
+  const { theme } = useTheme();
+
+  // Choose logo based on theme
+  const logoSrc = theme === 'light' 
+    ? '/assets/images/isd-logo-light.svg' 
+    : '/assets/images/isd-logo-dark.svg';
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -12,9 +20,9 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-3 mb-6 group">
               <div className="flex items-center space-x-2">
                 <img 
-                  src="/assets/images/apple-icon.png" 
+                  src={logoSrc}
                   alt="ISD Solutions Logo" 
-                  className="h-32 w-auto transition-transform duration-300 group-hover:scale-110"
+                  className="h-36 w-auto transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             </Link>

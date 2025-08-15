@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "../ui/button";
 import { ThemeToggle } from "../theme-toggle";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Choose logo based on theme
+  const logoSrc = theme === 'light' 
+    ? '/assets/images/isd-logo-light.svg' 
+    : '/assets/images/isd-logo-dark.svg';
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -20,9 +26,9 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="flex items-center space-x-2">
               <img 
-                src="/assets/images/apple-icon.png" 
+                src={logoSrc}
                 alt="ISD Solutions Logo" 
-                className="h-28 w-auto transition-transform duration-300 group-hover:scale-110"
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-110"
               />
             </div>
           </Link>
