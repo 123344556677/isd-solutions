@@ -64,23 +64,25 @@ export default function ServicesSection() {
   const scaleInVisible = "opacity-100 scale-100";
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-muted/30" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
+        <header 
           ref={headerRef as any}
           className={`text-center mb-16 ${fadeInUp} ${headerVisible ? fadeInUpVisible : ''}`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 id="services-heading" className="text-4xl md:text-5xl font-bold mb-6">
             Our <span className="text-gradient-red">Services</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We provide comprehensive IT solutions tailored to meet your business needs and drive digital transformation.
           </p>
-        </div>
+        </header>
         
         <div 
           ref={servicesRef as any}
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${scaleIn} ${servicesVisible ? scaleInVisible : ''}`}
+          role="list"
+          aria-label="IT Services"
         >
           {services.map((service, index) => (
             <Card 
@@ -90,19 +92,20 @@ export default function ServicesSection() {
                 animationDelay: `${index * 0.1}s`,
                 animation: servicesVisible ? `slideInUp 0.6s ease-out ${index * 0.1}s both` : 'none'
               }}
+              role="listitem"
             >
               <CardContent className="p-8">
-                <div className="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl text-primary-red mb-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                   <service.icon />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary-red transition-colors duration-300">{service.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground transition-colors duration-300">
                   {service.description}
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-2" role="list" aria-label={`${service.title} features`}>
                   {service.features.map((feature, featureIndex) => (
-                    <li key={feature} className="text-muted-foreground flex items-center group-hover:text-foreground transition-colors duration-300">
-                      <div className="w-2 h-2 bg-primary-red rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"></div>
+                    <li key={feature} className="text-muted-foreground flex items-center group-hover:text-foreground transition-colors duration-300" role="listitem">
+                      <div className="w-2 h-2 bg-primary-red rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" aria-hidden="true"></div>
                       {feature}
                     </li>
                   ))}

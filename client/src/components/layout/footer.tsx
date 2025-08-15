@@ -17,12 +17,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center space-x-3 mb-6 group">
+            <Link href="/" className="flex items-center space-x-3 mb-2 group">
               <div className="flex items-center space-x-2">
                 <img 
                   src={logoSrc}
                   alt="ISD Solutions Logo" 
-                  className="h-36 w-auto transition-transform duration-300 group-hover:scale-110"
+                  className="h-25 w-auto transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             </Link>
