@@ -28,7 +28,7 @@ export default function Navbar() {
               <img 
                 src={logoSrc}
                 alt="ISD Solutions Logo" 
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-110"
+                className="h-16 w-auto transition-transform duration-300 group-hover:scale-110"
               />
             </div>
           </Link>
